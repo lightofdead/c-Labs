@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+unsigned long fib(int n)
+{
+	if (n<=1)
+	{
+		return 1;
+	}
+	return fibon(n - 1) + fibon(n - 2);
+}
+
+
+int main()
+{
+    
+	int n;
+	unsigned long sum = 0;
+	cin >> n;
+	if (n >= 1)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			sum += fib(i);
+		}
+		cout << sum << endl;
+	}
+	else
+	{
+		cout << "Vvedite zanovo";
+	}
+	system("pause");
+	return 0;
+}
