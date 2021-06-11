@@ -1,0 +1,73 @@
+#include <iostream>
+#include <list>
+#include <vector>
+
+using namespace std;
+
+int deliteli(int x)
+{
+    int k = 0;
+    for (int i = 1; i <= x; i++)
+    {
+        if (x % i == 0)
+        {
+            k += 1;
+        }
+    }
+    return k;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int x, y, z = 0;
+    cout << "Введите количество чисел в последовательности ";
+    cin >> x;
+    vector<int> av;
+    vector<int> bv;
+    list<int> a;
+    list<int>::iterator ia;
+    list<int> b;
+    list<int>::iterator ib;
+
+    for (int i = 0; i < x; i++)
+    {
+        a.push_back(rand()); 
+        b.push_back(deliteli(a.back()));
+    }
+
+    for (ia = a.begin(), ib = b.begin(); ia != a.end(); ia++, ib++)
+    {
+        av.push_back(*ia);
+        bv.push_back(*ib);
+    }
+    a.clear();
+    b.clear();
+
+    for (int i = 0; i < x; i++)
+    {
+        for (int j = x - 1; j > i; j--)
+        {
+            if (bv[j] > bv[j - 1])
+            {
+                swap(bv[j], bv[j - 1]);
+                swap(av[j], av[j - 1]);
+            }
+
+        }
+    }
+    for (int i = 0; i < x; i++)
+    {
+        a.push_back(av[i]);
+        b.push_back(bv[i]);
+    }
+  
+    av.clear();
+    bv.clear()
+
+    for (ia = a.begin(), ib = b.begin(); ia != a.end(); ia++, ib++)
+    {
+        cout << *ia << ' ' << *ib << endl;
+    }
+    return 0;
+}

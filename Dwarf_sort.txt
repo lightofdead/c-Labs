@@ -1,0 +1,56 @@
+#include <iostream>
+#include <vector>
+#include <fstream>
+
+using namespace std;
+
+
+
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+
+    int n, i, c = 0;
+    int h = 2;
+    int g = 3;
+    vector<int> str;
+    vector<int>::iterator istr;
+
+    cin >> c;
+
+    for (int l = 0; l <= c; l++)
+    {
+        str.push_back(rand());
+    }
+
+    while (h < c)
+    {
+        if (str[h - 1] <= str[h])
+        {
+            h = g;
+            g++;
+        }
+        else
+        {
+            swap(str[h - 1], str[h]);
+            h--;
+        }
+        if (h == 0)
+        {
+            h = g;
+            g++;
+        }
+       
+    }
+        
+    for (istr = str.begin(), i=0; i < c ; i++, istr++)
+        {
+
+            cout << *istr << endl;
+        }
+        
+    str.clear();
+    return 0;
+
+}

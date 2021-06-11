@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <fstream>
+using namespace std;
+
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+
+    int n, i = 0;
+    vector<string> str;
+    string s = "";
+    ifstream file;
+    string searc;
+
+    file.open("E:\\ucbb5.txt", ios::in);
+    cout << "Введите комбинацию символов" << endl;
+    cin >> search;
+
+    if (search.size() > 10)
+    {
+        return -1;
+    }
+
+    while (!file.eof())
+    {
+        if (i == 0)
+        {
+            file >> n;
+        }
+        else
+        {
+            file >> s;
+            str.push_back(s);
+        }
+        i++;
+    }
+  
+  
+
+  for (int i = 0; i < n; i++)
+    
+{
+        if (str[i] == search)  cout << "номер элемента в массиве: " << ++i;
+    }
+
+    return 0;
+}
